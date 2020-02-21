@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
+
+    <!--Bootstrap CSS/style sheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css"/>
+
 </head>
 <body>
+    <!--High score link in top left corner-->
     <div class="scores"><a href="highscores.html">Check Out The Highscores</a></div>
-
-    <div class="timer">Time Left: <span id="time">0</span></div>
-
+    <!--Timer on top right corner-->
+    <div class="timer">Time Left: <div id="time">0</div></div>
+    <!--Start Screen before the questions-->
     <div class="wrapper">
         <div id="start-screen" class="start">
             <h1>The Awesome Coding Quiz</h1>
@@ -22,14 +27,26 @@
             </p>
             <button id="start"  type="button" class="btn btn-outline-success">START!</button> 
         </div>
-
+    <!--Questions and options-->
         <div id="questions" class="hide">
+            <h2 id="question-title"></h2>
+            <div id="options" class="options"></div>
+        </div>
+
+    <!--End screen after Questions-->
+        <div id="end-screen" class="hide">
             <h2>Quiz Over!</h2>
             <p>
-                Your final sch
+                Your final score is <span id="final-score"></span>.
+            </p>
+            <p>
+                Enter your Initials: <input type="text" class=""  id="initials" max="3"/>
+                <button id="submit"  type="button" class="btn btn-outline-success">Submit</button> 
             </p>
         </div>
     </div>
     
+    <!--Js refs-->
+    <script src="./assets/js/questions.js"></script>
 </body>
 </html>
