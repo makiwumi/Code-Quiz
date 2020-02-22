@@ -16,33 +16,25 @@
     <!--Timer on top right corner-->
     <div class="timer">Time Left: <div id="time">0</div></div>
     <!--Start Screen before the questions-->
-    <div class="container">
+    <div class="wrapper">
         <div id="start-screen" class="start">
             <h1>The Awesome Coding Quiz</h1>
             <p>
                 Answer the following code-related questions to
                 test your knowledge. The clock will be ticking! 
-                Any incorrect answer will result in a 5 second
+                Any incorrect answer will result in a 20 second
                 deduction! 
             </p>
             <button id="start"  type="button" class="btn btn-outline-success">START!</button> 
         </div>
-    <!--Quiz container-->
-        <div id="quiz" style="display: none;">
-            <!--Questions asked-->
-            <div id="question" class="hide">
-                <h2 id="question-title"></h2>
-            </div>
-            <!--Choices-->
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer">A</div>
-                <div class="choice" id="B" onclick="checkAnswer">B</div>
-                <div class="choice" id="C" onclick="checkAnswer">C</div>
-            </div>
-            <!--Wrong or right-->
-            <div id="progress" class="prog"></div>
+    
+         <!--Questions asked-->
+        <div id="question" class="hide">
+            <h2 id="question-title"></h2>
         </div>
-    <!--Questions and options-->
+        <!--Choices-->
+        <div id="choices" class="choices"></div>
+       
         
 
     <!--End screen after Questions-->
