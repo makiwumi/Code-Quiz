@@ -12,34 +12,29 @@ let feedback = document.getElementById("feedback");
 
 let questions =[
     {
-    questDis: "what is blah blah",
-    choices:["A", "B", "C"],
-    answer:"A"
+    questDis: "What is javascript?",
+    choices:["One of the 3 fundamental languages", "A mocha latte", " skeleton of a webpage"],
+    answer:"One of the 3 fundamental languages"
     },
     
     {
-    questDis: "what is ah ah",
-    choices:["A", "B", "C"],
-    answer:"B"
+    questDis: "What is a variables?",
+    choices:["String", "Number", "Boolean", "All of the above"],
+    answer:"All of the above"
     },
 
     {
-    questDis: "what is bl bl",
-    choices:["A", "B", "C"],
-    answer:"A"    
+    questDis: "what does confirm in javascript do?",
+    choices:["Prints an array of characters", "Asks a true/false question", "Nothing"],
+    answer:"Asks a true/false question"    
     },
 
     {
-    questDis: "what is ya ya",
-    choices:["A", "B", "C"],
-    answer:"C"
-    },
-
-    {
-    questDis: "what is ha blah",
-    choices:["A", "B", "C"],
-    answer:"B"
+    questDis: "what does console.log do?",
+    choices:["Displays logs", "A gaming system", "Prints out errors in the browser"],
+    answer:"Prints out errors in the browser"
     }
+
 ];
  
 //variables to display a question from array. 
@@ -179,7 +174,7 @@ function saveHighscore() {
           // save to localstorage
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
-        
+
         window.location.href="highscores.html";
     }
 }
