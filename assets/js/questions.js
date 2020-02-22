@@ -1,31 +1,87 @@
-// set variables/array (set questions) - loop thru questions and right answer (jsun)
+//Select all elements using IDs
 
-let questions = [{
-	question:"this is a question 1",
-	options:"['a', 'b']",
-	correctAnswer:"b"},
-	{
-    question:"this is a question 1",
-    options:"['a', 'b']",
-    correctAnswer:"b"},
-	{
-    question:"this is a question 1",
-    options:"['a', 'b']",
-    correctAnswer:"b"},
-	{
-    question:"this is a question 1",
-    options:"['a', 'b']",
-    correctAnswer:"b"},
-	{
-    question:"this is a question 1",
-    options:"['a', 'b']",
-    correctAnswer:"b"}
+let start = document.getElementById("start");
+let quiz = document.getElementById("quiz");
+let question = document.getElementById("question");
+let choiceA = document.getElementById("A");
+let choiceB = document.getElementById("B");
+let choiceC = document.getElementById("C");
+let submitBtn = document.getElementById("submit");
+let initials = document.getElementById("initials");
+var feedback = document.getElementById("feedback");
+
+//array of questions
+
+let questions =[
+    {
+    question: "what is blah blah",
+    choiceA:"op 1",
+    choiceB:"op2",
+    choiceC:"op3",
+    correct:"A"
+    },
+    
+    {
+    question: "what is ah ah",
+    choiceA:"op 1",
+    choiceB:"op2",
+    choiceC:"op3",
+    correct:"B"
+    },
+
+    {
+    question: "what is bl bl",
+    choiceA:"op 1",
+    choiceB:"op2",
+    choiceC:"op3",
+    correct:"A"    
+    },
+
+    {
+    question: "what is ya ya",
+    choiceA:"op 1",
+    choiceB:"op2",
+    choiceC:"op3",
+    correct:"C"
+    },
+
+    {
+    question: "what is ha blah",
+    choiceA:"op 1",
+    choiceB:"op2",
+    choiceC:"op3",
+    correct:"B"
+    }
 ];
-console.log(questions);
-// on click function using start button
+
+//select each question
+
+questions[0].question
+questions[0].choiceA
+questions[0].choiceB
+questions[0].choiceC
+questions[0].correct
+
+
+ 
+//variables to display a question from array. 
+//array = [q1, q2 ,q3 ,q4 ,q5]. array.length = 5. array index = 4
+let lastQuestionIndex = questions.length - 1;
+
+//variable for the question the user is answering
+let currentQuestionIndex = 0;
+
+//variable to start time
 let secondsLeft = 60;
 
-start.onclick = function(){
+
+// on click function using start button
+start.addEventListener("click", startQuiz)
+
+function startQuiz(){
+    let startScreen = document.getElementById("start-screen");
+    startScreen.setAttribute("class","hide");
+    
     //start time, show first question, list of ans.
     let mainEl = document.getElementById("time");
     let timerInterval = setInterval(function() {
@@ -35,20 +91,31 @@ start.onclick = function(){
       clearInterval(timerInterval);
     }
     }, 1000);
-    console.log("start");
 
-    // Call question function 
     showQuestion();
 }
-//function that loops thru ques array 1 at a time
+
+//function to display current question
 function showQuestion(){
-    let currentQuestion = questions
+    let display = questions[currentQuestionIndex];
+    question.innerHTML = "<h2>" + display.question + "</h2>";
+    choiceA.innerHTML = display.choiceA;
+    choiceB.innerHTML = display.choiceB;
+    choiceC.innerHTML = display.choiceC;
 }
-//function to compare ans (right or wrong)
-//function end screen
-    //user chooses ans. 
-    //right ans - move to next question
-    //wrong ans - decrease time - move to next question
-    //last question/ran out time - show end screen div
-    //type initial, max 3. 
-    //on click submit button goes to highscore.html
+
+//check answer function
+function checkAnswer(answer){
+    //answer is correct
+    if (answer == questions[currentQuestionIndex].correct){
+        feedback.textContent = "Correct!";
+    }
+    else{
+        //answer is wrong
+        time -= 15;
+        feedback.textContent = "Wrong!";
+    }
+    if (time < 0) {
+      time = 0;
+    }
+}
